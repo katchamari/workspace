@@ -1,0 +1,17 @@
+<% const {navItems = []} = locals; %>
+<nav class="main-nav">
+    <div class="container">
+        <ul class="main-nav-list">
+            <% navItems.forEach(item => { %>
+                <% const {href='#', label='Label needed', subMenu=[], className='', id=''} = item; %>
+                <% const hasSubMenu = subMenu && subMenu.length ? 'opens-submenu' : false; %>
+                <li class="nav-item <%= hasSubMenu %> <%= className %>" id="<%= id %>">
+                    <a href="<%= href %>"><%= label %></a>
+                    <% if(hasSubMenu){ %>
+                        <%- include('./subMenuNav', {navItems:subMenu, subMenuId: href.replace('#','')}) %>    
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,22 @@
+<% const {windowType='notes'} = locals %>
+<article class="workspace-window type-notes">
+    <header class="window-header">
+        <input type="text" class="window-title" value="Untitled">
+
+        <div class="window-actions">
+            <a href="#" class="close-window window-action"><%- include('../svgs/x') %></a>
+        </div>
+    </header>
+    <main class="window-content">
+        <% 
+            let contentPartial = null;
+            switch(windowType){
+                case 'notes' :
+                    contentPartial = include(`./windowContents/${windowType}`);
+                    break;
+                default:
+                contentPartial = include(`./windowContents/notes`);
+            }    
+        %>
+    </main>
+</article>

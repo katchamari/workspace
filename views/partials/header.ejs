@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./head'); %>
+</head>
+<body>
+
+    <% const navItems = [
+        {
+            label:'File',
+            href:'#sub-menu-file',
+            subMenu:[
+                {
+                    label:'Create',
+                    href:'#sub-menu-new-window',
+                    subMenu:[
+                        {
+                            label:'Text window',
+                            href:'#window-type-notes',
+                            id:'add-window',
+                        }
+                    ]
+                }
+            ]
+        }
+    ] %>
+    <header class="main-header">
+        <%- include('./navbar', {navItems}) %>
+    </header>
+
+    <main class="main-content">

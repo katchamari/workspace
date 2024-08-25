@@ -1,0 +1,14 @@
+<%- include('./partials/header') %>
+<% const workspaceWindow = include('./partials/windows/workspaceWindow') %>
+<section id="workspace" class="main-scroll-content">
+</section>
+<%- include('./partials/footer') %>
+
+<script>
+    $('#add-window').on('click', function(e){
+        e.preventDefault();
+        const window = $(<%- JSON.stringify(workspaceWindow) %>);
+        $('#workspace').append(window);
+        windowSettings(window);
+    })
+</script>
